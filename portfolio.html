@@ -1,0 +1,714 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deep Learning & Software Engineer</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <style>
+    :root {
+      --bg-primary: #fafaf8;
+      --bg-secondary: #f3f0eb;
+      --text-primary: #1a1a1a;
+      --text-secondary: #6b6b6b;
+      --accent: #d97706;
+      --accent-soft: #fed7aa;
+      --border: #e5e0d8;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg-primary: #0f0f0f;
+        --bg-secondary: #1a1a1a;
+        --text-primary: #fafaf8;
+        --text-secondary: #a0a0a0;
+        --accent: #f59e0b;
+        --accent-soft: #78350f;
+        --border: #2a2a2a;
+      }
+    }
+
+    :root[data-theme="dark"] {
+      --bg-primary: #0f0f0f;
+      --bg-secondary: #1a1a1a;
+      --text-primary: #fafaf8;
+      --text-secondary: #a0a0a0;
+      --accent: #f59e0b;
+      --accent-soft: #78350f;
+      --border: #2a2a2a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    /* Typography */
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      text-wrap: balance;
+    }
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.5rem;
+      text-wrap: balance;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      line-height: 1.3;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      line-height: 1.7;
+      max-width: 65ch;
+      color: var(--text-secondary);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    a:hover {
+      border-bottom-color: var(--accent);
+    }
+
+    /* Header & Nav */
+    header {
+      padding: 2rem 2rem;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: var(--bg-primary);
+      z-index: 100;
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text-primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .nav-brand img {
+      width: 40px;
+      height: 40px;
+      border: 2px solid var(--accent);
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: 58% center;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    /* Sections */
+    section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .hero {
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      gap: 3rem;
+    }
+
+    .hero-content h1 {
+      margin-bottom: 1rem;
+    }
+
+    .hero-content .subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      max-width: 65ch;
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .cta {
+      padding: 0.75rem 1.5rem;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      background: transparent;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .cta:hover {
+      background: var(--accent);
+      color: var(--bg-primary);
+    }
+
+    .cta-primary {
+      background: var(--accent);
+      color: var(--bg-primary);
+      border-color: var(--accent);
+    }
+
+    .cta-primary:hover {
+      background: transparent;
+      color: var(--accent);
+    }
+
+    /* About Section */
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
+    }
+
+    .about-meta {
+      background: var(--bg-secondary);
+      padding: 2rem;
+      border-radius: 8px;
+    }
+
+    .about-meta h4 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    .meta-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .meta-item {
+      font-size: 0.95rem;
+      color: var(--text-primary);
+    }
+
+    /* Projects */
+    .projects-section {
+      background: var(--bg-secondary);
+    }
+
+    .project-grid {
+      display: grid;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .project-card {
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2rem;
+      transition: all 0.3s;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .project-header {
+      margin-bottom: 1.5rem;
+    }
+
+    .project-title {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-title h3 {
+      margin: 0;
+    }
+
+    .project-tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    .project-description {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .learned {
+      border-left: 2px solid var(--accent);
+      padding-left: 1rem;
+      margin: 1.5rem 0;
+      font-style: italic;
+      color: var(--text-secondary);
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .tech-tag {
+      font-size: 0.85rem;
+      padding: 0.4rem 0.8rem;
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      border-radius: 4px;
+      border: 1px solid var(--border);
+    }
+
+    .project-links {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .project-links a {
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Tech Stack */
+    .tech-section {
+      background: var(--bg-primary);
+    }
+
+    .tech-categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+      margin-top: 2rem;
+    }
+
+    .tech-category h3 {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .tech-category p {
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .tech-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .tech-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem;
+      background: var(--bg-secondary);
+      border-radius: 4px;
+    }
+
+    .tech-name {
+      font-weight: 500;
+    }
+
+    .tech-level {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    /* Contact */
+    .contact-section {
+      text-align: center;
+      background: var(--bg-secondary);
+    }
+
+    .contact-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-email {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin: 2rem 0;
+      color: var(--text-primary);
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .nav-links {
+        gap: 1rem;
+        font-size: 0.9rem;
+      }
+
+      .hero {
+        padding: 3rem 1.5rem;
+      }
+
+      section {
+        padding: 3rem 1.5rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+
+
+</head>
+<body>
+  <header>
+    <nav>
+      
+      <div class="nav-brand">
+        <img src="headshot.jpg" alt="Embee">
+        <span>embee</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#tech">Tech</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Deep Learning & Software Engineer</h1>
+      <p class="subtitle">Exploring the intersection of software, AI, and real-world systems. Building products that solve problems in education, workforce development, and African technology.</p>
+      <div class="cta-group">
+        <a href="#work" class="cta cta-primary">View My Work</a>
+        <a href="#contact" class="cta">Get In Touch</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="about-content">
+      <div class="about-text">
+        <h2>Building at the Intersection</h2>
+        <p>I'm an engineer who enjoys turning problems I encounter into working products. Whether it's understanding employee performance at scale, preserving African languages through technology, or connecting students with real engineering experience—the common thread is solving problems that matter.</p>
+        <p>Right now, I'm focused on becoming stronger at building reliable software and AI systems. That means thinking deeply about system design, working with real data and users, and learning from every project about what actually works.</p>
+      </div>
+      <div class="about-meta">
+        <h4>Focus Areas</h4>
+        <div class="meta-list">
+          <div class="meta-item">Full-stack SaaS products</div>
+          <div class="meta-item">AI/ML applications</div>
+          <div class="meta-item">Real-world problem solving</div>
+          <div class="meta-item">African tech & education</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" class="projects-section">
+    <h2>Work & Learning Journey</h2>
+    <p>These projects shaped how I think about software, products, and systems. What I learned from each is as important as what I built.</p>
+
+    <div class="project-grid">
+      <!-- Yetah IQ -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-title">
+            <h3>Yetah IQ</h3>
+            <span class="project-tag">SaaS</span>
+          </div>
+        </div>
+        <p class="project-description">An AI-powered workforce development platform that helps organizations understand employee performance, identify growth opportunities, and drive continuous development through intelligent insights.</p>
+        <div class="learned">
+          <strong>What I Learned:</strong> Built the MVP end-to-end and discovered the difference between feature-building and product-thinking. This project taught me about permissions, data relationships, multi-user workflows, and designing systems that actually work for different stakeholder roles. It's one thing to build features; it's another to design a coherent experience across dashboards, reviews, goals, and analytics.
+        </div>
+        <div class="tech-stack">
+          <span class="tech-tag">Next.js</span>
+          <span class="tech-tag">C/C++</span>
+          <span class="tech-tag">TypeScript</span>
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Supabase</span>
+          <span class="tech-tag">CAD/CAM</span>
+          <span class="tech-tag">LLM APIs</span>
+        </div>
+        <div class="project-links">
+          <a href="https://www.yetahiq.com" target="_blank">View Live →</a>
+        </div>
+      </div>
+
+      <!-- Langlang -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-title">
+            <h3>Langlang</h3>
+            <span class="project-tag">Research</span>
+          </div>
+        </div>
+        <p class="project-description">An exploration into how AI and language technology can address a distinctly African problem: making local languages more accessible and preserving them in digital spaces.</p>
+        <div class="learned">
+          <strong>What I Learned:</strong> As an online student of Jeromy Howard (FastAi), I decided to take on my first real project with Langlang. Pushed me to think beyond generic datasets and generic models. This wasn't about reproducing benchmark NLP systems it was about understanding what accessibility and cultural preservation actually mean in code. I learned that the hardest part of AI isn't always the models; it's understanding the problem deeply enough to know what to build.
+        </div>
+        <div class="tech-stack">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">NLP</span>
+          <span class="tech-tag">Machine Learning</span>
+          <span class="tech-tag">LLM APIs</span>
+          <span class="tech-tag">Web Technologies</span>
+        </div>
+        <div class="project-links">
+          <a href="https://langlang-seven.vercel.app/" target="_blank">View Live →</a>
+        </div>
+      </div>
+
+      <!-- Robotics Diaries -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-title">
+            <h3>Robotics Diaries</h3>
+            <span class="project-tag">Education</span>
+          </div>
+        </div>
+        <p class="project-description">A learning platform connecting university engineering students with practical engineering experience, structured lessons, projects, certifications, and industry opportunities.</p>
+        <div class="learned">
+          <strong>What I Learned:</strong> Combined my robotics and engineering background with product and frontend design. The challenge was translating "practical engineering experience" into actual product features—lessons, projects, certifications—and thinking about how students discover and progress through them. Reinforced that domain knowledge and product thinking have to move together.
+        </div>
+        <div class="tech-stack">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">C/C++</span>
+          <span class="tech-tag">TypeScript</span>
+          <span class="tech-tag">Tailwind CSS</span>
+          <span class="tech-tag">Git</span>
+        </div>
+        <div class="project-links">
+          <a href="https://roboticsdiaries.gt.tc" target="_blank">View Live →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tech" class="tech-section">
+    <h2>Technical Depth</h2>
+    <p>Core areas of focus and active development.</p>
+
+    <div class="tech-categories">
+      <div class="tech-category">
+        <h3>Languages & Fundamentals</h3>
+        <p>Core languages across systems and applications.</p>
+        <div class="tech-list">
+          <div class="tech-item">
+            <span class="tech-name">Python</span>
+            <span class="tech-level">Intermediate</span>
+          </div>
+          <div class="tech-item">
+            <span class="tech-name">JavaScript / TypeScript</span>
+            <span class="tech-level">Beginner</span>
+          </div>
+          <div class="tech-item">
+            <span class="tech-name">C / C++</span>
+            <span class="tech-level">Intermediate</span>
+          </div>
+          <div class="tech-item">
+            <span class="tech-name">SQL</span>
+            <span class="tech-level">Beginner</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tech-category">
+        <h3>Frontend & UI</h3>
+        <p>Building responsive, interactive web experiences.</p>
+        <div class="tech-list">
+          <div class="tech-item">
+            <span class="tech-name">React</span>
+            <span class="tech-level">Beginner</span>
+          </div>
+          <div class="tech-item">
+            <span class="tech-name">Next.js</span>
+            <span class="tech-level">Beginner</span>
+          </div>
+          <div class="tech-item">
+            <span class="tech-name">Tailwind CSS</span>
+            <span class="tech-level">Beginner</span>
+          </div>
+          <div class="tech-item">
+            <span class="tech-name">TypeScript</span>
+            <span class="tech-level">Beginner</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tech-category">
+        <h3>Backend & Data</h3>
+        <p>APIs, databases, and data architecture.</p>
+        <div class="tech-list">
+          <div class="tech-item">
+            <span class="tech-name">Supabase / PostgreSQL</span>
+            <span class="tech-level">Intermediate</span>
+          </div>
+          <div class="tech-item">
+            <span class="tech-name">REST APIs</span>
+            <span class="tech-level">Beginner</span>
+          </div>
+          <div class="tech-item">
+            <span class="tech-name">Authentication & Permissions</span>
+            <span class="tech-level">Beginner</span>
+          </div>
+          <div class="tech-item">
+            <span class="tech-name">Row-Level Security</span>
+            <span class="tech-level">Intermediate</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tech-category">
+        <h3>AI & Machine Learning</h3>
+        <p>Deep learning, NLP, and AI applications.</p>
+        <div class="tech-list">
+          <div class="tech-item">
+            <span class="tech-name">Machine Learning</span>
+            <span class="tech-level">Intermediate</span>
+          </div>
+          <div class="tech-item">
+            <span class="tech-name">NLP</span>
+            <span class="tech-level">Beginner</span>
+          </div>
+          <div class="tech-item">
+            <span class="tech-name">LLM APIs & Integration</span>
+            <span class="tech-level">Beginner</span>
+          </div>
+          <div class="tech-item">
+            <span class="tech-name">Data Analysis & Visualization</span>
+            <span class="tech-level">Beginner</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-section">
+    <div class="contact-content">
+      <h2>Let's Connect</h2>
+      <p>Whether you're building something interesting, want to discuss AI and African tech, or have a problem that needs solving, I'd like to hear about it.</p>
+      <div class="contact-email">bigembee24@gmail.com</div>
+      <div class="contact-links">
+        <a href="https://github.com/bigembee" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/bigembee" target="_blank">LinkedIn</a>
+        <a href="mailto:bigembee24@gmail.com">Email</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025. Built by embee.</p>
+  </footer>
+</body>
+</html>
