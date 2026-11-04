@@ -3,39 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Deep Learning & Software Engineer</title>
+  <title>Embee | Mechatronics & Systems / ML Engineer</title>
+  <meta name="description" content="Mechatronics and systems engineer building high-performance backend systems, custom PyTorch models, and practical engineering platforms.">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
   <style>
     :root {
-      --bg-primary: #fafaf8;
-      --bg-secondary: #f3f0eb;
-      --text-primary: #1a1a1a;
-      --text-secondary: #6b6b6b;
-      --accent: #d97706;
-      --accent-soft: #fed7aa;
-      --border: #e5e0d8;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root:not([data-theme="light"]) {
-        --bg-primary: #0f0f0f;
-        --bg-secondary: #1a1a1a;
-        --text-primary: #fafaf8;
-        --text-secondary: #a0a0a0;
-        --accent: #f59e0b;
-        --accent-soft: #78350f;
-        --border: #2a2a2a;
-      }
-    }
-
-    :root[data-theme="dark"] {
-      --bg-primary: #0f0f0f;
-      --bg-secondary: #1a1a1a;
-      --text-primary: #fafaf8;
-      --text-secondary: #a0a0a0;
-      --accent: #f59e0b;
-      --accent-soft: #78350f;
-      --border: #2a2a2a;
+      color-scheme: dark;
+      --bg-primary: #0b0d0e;
+      --bg-secondary: #111416;
+      --text-primary: #f4f6f5;
+      --text-secondary: #a1aaa8;
+      --accent: #f5b65c;
+      --border: #2b3030;
     }
 
     * {
@@ -101,17 +80,19 @@
 
     /* Header & Nav */
     header {
-      padding: 2rem 2rem;
+      padding: 1rem 2rem;
       border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
       background: var(--bg-primary);
       z-index: 100;
+      background: rgba(11, 13, 14, 0.96);
+      backdrop-filter: blur(12px);
     }
 
     nav {
       display: flex;
-      gap: 2rem;
+      gap: 1.5rem;
       max-width: 1200px;
       margin: 0 auto;
       align-items: center;
@@ -139,8 +120,9 @@
 
     .nav-links {
       display: flex;
-      gap: 2rem;
+      gap: 1.5rem;
       list-style: none;
+      align-items: center;
     }
 
     .nav-links a {
@@ -155,25 +137,39 @@
 
     /* Sections */
     section {
-      padding: 4rem 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .hero {
       padding: 5rem 2rem;
       max-width: 1200px;
       margin: 0 auto;
-      display: grid;
-      gap: 3rem;
+      scroll-margin-top: 5.5rem;
+    }
+
+    .hero {
+      padding: 7rem 2rem 6rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      min-height: 430px;
+      display: flex;
+      align-items: center;
     }
 
     .hero-content h1 {
-      margin-bottom: 1rem;
+      max-width: 850px;
+      margin: 0.75rem 0 1.25rem;
+      font-size: clamp(3rem, 7vw, 5.8rem);
+      letter-spacing: -0.055em;
+      line-height: 0.98;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
     }
 
     .hero-content .subtitle {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       color: var(--text-secondary);
       margin-bottom: 2rem;
       max-width: 65ch;
@@ -188,7 +184,8 @@
 
     .cta {
       padding: 0.75rem 1.5rem;
-      border: 1px solid var(--accent);
+      border: 1px solid var(--border);
+      border-radius: 3px;
       color: var(--accent);
       background: transparent;
       cursor: pointer;
@@ -200,13 +197,13 @@
     }
 
     .cta:hover {
-      background: var(--accent);
-      color: var(--bg-primary);
+      border-color: var(--accent);
+      color: var(--text-primary);
     }
 
     .cta-primary {
       background: var(--accent);
-      color: var(--bg-primary);
+      color: #17120a;
       border-color: var(--accent);
     }
 
@@ -231,7 +228,7 @@
     .about-meta {
       background: var(--bg-secondary);
       padding: 2rem;
-      border-radius: 8px;
+      border: 1px solid var(--border);
     }
 
     .about-meta h4 {
@@ -256,96 +253,105 @@
 
     /* Projects */
     .projects-section {
+      max-width: none;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
       background: var(--bg-secondary);
+    }
+
+    .projects-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .project-category {
+      margin-top: 3.5rem;
+    }
+
+    .project-category > h3 {
+      color: var(--text-secondary);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
     }
 
     .project-grid {
       display: grid;
-      gap: 2rem;
-      margin-top: 2rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
     }
 
     .project-card {
       background: var(--bg-primary);
       border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 2rem;
-      transition: all 0.3s;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      min-height: 265px;
+      transition: border-color 0.2s;
     }
 
     .project-card:hover {
       border-color: var(--accent);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     }
 
     .project-header {
-      margin-bottom: 1.5rem;
-    }
-
-    .project-title {
-      display: flex;
-      align-items: baseline;
-      gap: 1rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .project-title h3 {
-      margin: 0;
-    }
-
-    .project-tag {
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--accent);
-      background: var(--accent-soft);
-      padding: 0.25rem 0.75rem;
-      border-radius: 4px;
-      white-space: nowrap;
+      margin-bottom: 0.75rem;
     }
 
     .project-description {
       color: var(--text-secondary);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
       line-height: 1.7;
-    }
-
-    .learned {
-      border-left: 2px solid var(--accent);
-      padding-left: 1rem;
-      margin: 1.5rem 0;
-      font-style: italic;
-      color: var(--text-secondary);
     }
 
     .tech-stack {
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
-      margin-top: 1rem;
+      margin-top: auto;
+      padding-top: 0.5rem;
     }
 
     .tech-tag {
       font-size: 0.85rem;
-      padding: 0.4rem 0.8rem;
-      background: var(--bg-secondary);
-      color: var(--text-primary);
-      border-radius: 4px;
+      padding: 0.3rem 0.6rem;
+      color: var(--text-secondary);
       border: 1px solid var(--border);
     }
 
     .project-links {
       display: flex;
-      gap: 1.5rem;
-      margin-top: 1.5rem;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+      align-items: center;
+      flex-wrap: wrap;
     }
 
-    .project-links a {
-      font-weight: 500;
+    .project-links a,
+    .project-links .demo-unavailable {
+      font-size: 0.88rem;
+      font-weight: 600;
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
+      padding: 0.4rem 0.65rem;
+      border: 1px solid var(--border);
+    }
+
+    .project-links a:hover {
+      border-color: var(--accent);
+    }
+
+    .project-links .demo-unavailable {
+      color: var(--text-secondary);
+      cursor: default;
+    }
+
+    .project-links .demo-unavailable:hover {
+      border-color: var(--border);
     }
 
     /* Tech Stack */
@@ -355,52 +361,45 @@
 
     .tech-categories {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 3rem;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
       margin-top: 2rem;
     }
 
-    .tech-category h3 {
+    .skill-group h3 {
       margin-bottom: 1rem;
-      font-size: 1.1rem;
+      font-size: 1rem;
     }
 
-    .tech-category p {
-      font-size: 0.95rem;
-      margin-bottom: 1rem;
-    }
-
-    .tech-list {
-      display: grid;
-      gap: 1rem;
-    }
-
-    .tech-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.75rem;
+    .skill-group {
       background: var(--bg-secondary);
-      border-radius: 4px;
+      border: 1px solid var(--border);
+      padding: 1.5rem;
     }
 
-    .tech-name {
-      font-weight: 500;
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
 
-    .tech-level {
-      font-size: 0.85rem;
+    .skill-tags span {
+      border: 1px solid var(--border);
       color: var(--text-secondary);
+      font-size: 0.88rem;
+      padding: 0.35rem 0.65rem;
     }
 
     /* Contact */
     .contact-section {
       text-align: center;
       background: var(--bg-secondary);
+      max-width: none;
+      border-top: 1px solid var(--border);
     }
 
-    .contact-content {
-      max-width: 600px;
+    .contact-inner {
+      max-width: 700px;
       margin: 0 auto;
     }
 
@@ -429,31 +428,64 @@
     }
 
     /* Responsive */
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2rem;
-      }
-
+    @media (max-width: 800px) {
       h2 {
         font-size: 1.5rem;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tech-categories {
+        grid-template-columns: 1fr;
       }
 
       .about-content {
         grid-template-columns: 1fr;
         gap: 2rem;
       }
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 0.8rem 1rem;
+      }
+
+      nav {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
 
       .nav-links {
-        gap: 1rem;
-        font-size: 0.9rem;
+        width: 100%;
+        gap: 1.25rem;
+        overflow-x: auto;
+        padding-bottom: 0.25rem;
+        white-space: nowrap;
       }
 
       .hero {
-        padding: 3rem 1.5rem;
+        min-height: auto;
+        padding: 5rem 1.25rem 4rem;
       }
 
       section {
-        padding: 3rem 1.5rem;
+        padding: 4rem 1.25rem;
+      }
+
+      .projects-section {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      .projects-inner {
+        padding: 0 1.25rem;
+      }
+
+      .project-card {
+        padding: 1.25rem;
       }
     }
 
@@ -469,246 +501,179 @@
 </head>
 <body>
   <header>
-    <nav>
-      
-      <div class="nav-brand">
-        <img src="headshot.jpg" alt="Embee">
+    <nav aria-label="Main navigation">
+      <a class="nav-brand" href="#top">
+        <img src="headshot.jpg" alt="">
         <span>embee</span>
-      </div>
+      </a>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
-        <li><a href="#work">Work</a></li>
-        <li><a href="#tech">Tech</a></li>
+        <li><a href="#ml-systems">ML &amp; Systems</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="resume.html" download="embee-resume.html">Resume</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <div class="hero">
-    <div class="hero-content">
-      <h1>Deep Learning & Software Engineer</h1>
-      <p class="subtitle">Exploring the intersection of software, AI, and real-world systems. Building products that solve problems in education, workforce development, and African technology.</p>
-      <div class="cta-group">
-        <a href="#work" class="cta cta-primary">View My Work</a>
-        <a href="#contact" class="cta">Get In Touch</a>
-      </div>
-    </div>
-  </div>
-
-  <section id="about">
-    <div class="about-content">
-      <div class="about-text">
-        <h2>Building at the Intersection</h2>
-        <p>I'm an engineer who enjoys turning problems I encounter into working products. Whether it's understanding employee performance at scale, preserving African languages through technology, or connecting students with real engineering experience—the common thread is solving problems that matter.</p>
-        <p>Right now, I'm focused on becoming stronger at building reliable software and AI systems. That means thinking deeply about system design, working with real data and users, and learning from every project about what actually works.</p>
-      </div>
-      <div class="about-meta">
-        <h4>Focus Areas</h4>
-        <div class="meta-list">
-          <div class="meta-item">Full-stack SaaS products</div>
-          <div class="meta-item">AI/ML applications</div>
-          <div class="meta-item">Real-world problem solving</div>
-          <div class="meta-item">African tech & education</div>
+  <main id="top">
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">Engineering · Systems · Machine Learning</p>
+        <h1>Mechatronics &amp; Systems / ML Engineer</h1>
+        <p class="subtitle">Building high-performance backend systems, custom PyTorch models, and practical engineering platforms. Co-founder of Robotics Diaries.</p>
+        <div class="cta-group">
+          <a href="https://github.com/bigembee" class="cta cta-primary" target="_blank" rel="noopener noreferrer">View GitHub</a>
+          <a href="resume.html" class="cta" download="embee-resume.html">Download Resume</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="work" class="projects-section">
-    <h2>Work & Learning Journey</h2>
-    <p>These projects shaped how I think about software, products, and systems. What I learned from each is as important as what I built.</p>
-
-    <div class="project-grid">
-      <!-- Yetah IQ -->
-      <div class="project-card">
-        <div class="project-header">
-          <div class="project-title">
-            <h3>Yetah IQ</h3>
-            <span class="project-tag">SaaS</span>
-          </div>
+    <section id="about">
+      <div class="about-content">
+        <div class="about-text">
+          <p class="eyebrow">About</p>
+          <h2>Engineering systems that solve real problems.</h2>
+          <p>I build practical products where software meets real-world systems: backend platforms, machine learning tools, and engineering education experiences. My work spans custom model implementations, accessible language technology, and products designed around the people who use them.</p>
+          <p>As co-founder of Robotics Diaries, I help make hands-on engineering more accessible to students through practical projects and learning resources.</p>
         </div>
-        <p class="project-description">An AI-powered workforce development platform that helps organizations understand employee performance, identify growth opportunities, and drive continuous development through intelligent insights. I focused on building the backend infrastructure and designing the core dashboards.</p>
-        <div class="learned">
-          <strong>What I Learned:</strong> Built robust backend systems and comprehensive dashboards that translate complex employee data into actionable insights for the MVP. This taught me about data architecture, permissions, multi-user workflows, and designing dashboard experiences that tell the right story for different stakeholder roles—managers, executives, and employees. The hardest part wasn't feature-building; it was designing systems that surface the right insights at the right time across reviews, goals, and analytics.
-        </div>
-        <div class="tech-stack">
-          <span class="tech-tag">Next.js</span>
-          <span class="tech-tag">C/C++</span>
-          <span class="tech-tag">TypeScript</span>
-          <span class="tech-tag">Python</span>
-          <span class="tech-tag">Supabase</span>
-          <span class="tech-tag">CAD/CAM</span>
-          <span class="tech-tag">LLM APIs</span>
-        </div>
-        <div class="project-links">
-          <a href="https://www.yetahiq.com" target="_blank">View Live →</a>
-        </div>
-      </div>
-
-      <!-- Langlang -->
-      <div class="project-card">
-        <div class="project-header">
-          <div class="project-title">
-            <h3>Langlang</h3>
-            <span class="project-tag">Research</span>
-          </div>
-        </div>
-        <p class="project-description">An exploration into how AI and language technology can address a distinctly African problem: making local languages more accessible and preserving them in digital spaces.</p>
-        <div class="learned">
-          <strong>What I Learned:</strong> As an online student of Jeromy Howard (FastAi), I decided to take on my first real project with Langlang. Pushed me to think beyond generic datasets and generic models. This wasn't about reproducing benchmark NLP systems it was about understanding what accessibility and cultural preservation actually mean in code. I learned that the hardest part of AI isn't always the models; it's understanding the problem deeply enough to know what to build.
-        </div>
-        <div class="tech-stack">
-          <span class="tech-tag">Python</span>
-          <span class="tech-tag">NLP</span>
-          <span class="tech-tag">Machine Learning</span>
-          <span class="tech-tag">LLM APIs</span>
-          <span class="tech-tag">Web Technologies</span>
-        </div>
-        <div class="project-links">
-          <a href="https://langlang-seven.vercel.app/" target="_blank">View Live →</a>
-        </div>
-      </div>
-
-      <!-- Robotics Diaries -->
-      <div class="project-card">
-        <div class="project-header">
-          <div class="project-title">
-            <h3>Robotics Diaries</h3>
-            <span class="project-tag">Education</span>
-          </div>
-        </div>
-        <p class="project-description">A learning platform connecting university engineering students with practical engineering experience, structured lessons, projects, certifications, and industry opportunities.</p>
-        <div class="learned">
-          <strong>What I Learned:</strong> Combined my robotics and engineering background with product and frontend design. The challenge was translating "practical engineering experience" into actual product features—lessons, projects, certifications—and thinking about how students discover and progress through them. Reinforced that domain knowledge and product thinking have to move together.
-        </div>
-        <div class="tech-stack">
-          <span class="tech-tag">Python</span>
-          <span class="tech-tag">C/C++</span>
-          <span class="tech-tag">TypeScript</span>
-          <span class="tech-tag">Tailwind CSS</span>
-          <span class="tech-tag">Git</span>
-        </div>
-        <div class="project-links">
-          <a href="https://roboticsdiaries.gt.tc" target="_blank">View Live →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="tech" class="tech-section">
-    <h2>Technical Depth</h2>
-    <p>Core areas of focus and active development.</p>
-
-    <div class="tech-categories">
-      <div class="tech-category">
-        <h3>Languages & Fundamentals</h3>
-        <p>Core languages across systems and applications.</p>
-        <div class="tech-list">
-          <div class="tech-item">
-            <span class="tech-name">Python</span>
-            <span class="tech-level">Intermediate</span>
-          </div>
-          <div class="tech-item">
-            <span class="tech-name">JavaScript / TypeScript</span>
-            <span class="tech-level">Beginner</span>
-          </div>
-          <div class="tech-item">
-            <span class="tech-name">C / C++</span>
-            <span class="tech-level">Intermediate</span>
-          </div>
-          <div class="tech-item">
-            <span class="tech-name">SQL</span>
-            <span class="tech-level">Beginner</span>
+        <div class="about-meta">
+          <h4>Focus Areas</h4>
+          <div class="meta-list">
+            <div class="meta-item">Backend and data systems</div>
+            <div class="meta-item">Machine learning from first principles</div>
+            <div class="meta-item">Mechatronics and embedded systems</div>
+            <div class="meta-item">Practical engineering education</div>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="tech-category">
-        <h3>Frontend & UI</h3>
-        <p>Building responsive, interactive web experiences.</p>
-        <div class="tech-list">
-          <div class="tech-item">
-            <span class="tech-name">React</span>
-            <span class="tech-level">Beginner</span>
+    <section class="projects-section" aria-labelledby="projects-heading">
+      <div class="projects-inner">
+        <p class="eyebrow">Selected work</p>
+        <h2 id="projects-heading">Projects built to be used.</h2>
+        <p>From model internals to products serving real teams and learners.</p>
+
+        <div class="project-category" id="ml-systems">
+          <h3>Machine Learning &amp; Systems Engineering</h3>
+          <div class="project-grid">
+            <article class="project-card">
+              <div class="project-header">
+                <h3>NanoGPT &amp; Autograd Engine</h3>
+              </div>
+              <p class="project-description">Custom implementation of a scalar autograd engine and decoder-only Transformer trained from scratch without high-level wrappers.</p>
+              <div class="tech-stack" aria-label="Technologies">
+                <span class="tech-tag">PyTorch</span>
+                <span class="tech-tag">Python</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/bigembee" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+                <span class="demo-unavailable" aria-label="Live demo coming soon">Demo coming soon</span>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-header">
+                <h3>Langlang</h3>
+              </div>
+              <p class="project-description">NLP processing pipelines and tokenization tooling for digital accessibility in African languages.</p>
+              <div class="tech-stack" aria-label="Technologies">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">PyTorch</span>
+                <span class="tech-tag">Fast.ai</span>
+                <span class="tech-tag">NLP</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/bigembee" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+                <a href="https://langlang-seven.vercel.app/" target="_blank" rel="noopener noreferrer">Live demo <span aria-hidden="true">↗</span></a>
+              </div>
+            </article>
           </div>
-          <div class="tech-item">
-            <span class="tech-name">Next.js</span>
-            <span class="tech-level">Beginner</span>
-          </div>
-          <div class="tech-item">
-            <span class="tech-name">Tailwind CSS</span>
-            <span class="tech-level">Beginner</span>
-          </div>
-          <div class="tech-item">
-            <span class="tech-name">TypeScript</span>
-            <span class="tech-level">Beginner</span>
+        </div>
+
+        <div class="project-category" id="products">
+          <h3>Product &amp; Full-Stack Systems</h3>
+          <div class="project-grid">
+            <article class="project-card">
+              <div class="project-header">
+                <h3>Yetah IQ</h3>
+              </div>
+              <p class="project-description">Enterprise workforce intelligence platform featuring PostgreSQL data schemas and real-time AI dashboards.</p>
+              <div class="tech-stack" aria-label="Technologies">
+                <span class="tech-tag">Next.js</span>
+                <span class="tech-tag">Supabase</span>
+                <span class="tech-tag">PostgreSQL</span>
+                <span class="tech-tag">AI APIs</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/bigembee" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+                <a href="https://www.yetahiq.com" target="_blank" rel="noopener noreferrer">Live demo <span aria-hidden="true">↗</span></a>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-header">
+                <h3>Robotics Diaries</h3>
+              </div>
+              <p class="project-description">Practical robotics &amp; software learning ecosystem scaled to 130+ engineering students.</p>
+              <div class="tech-stack" aria-label="Technologies">
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">C++</span>
+                <span class="tech-tag">Embedded Systems</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/bigembee" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+                <a href="https://www.roboticsdiaries.org" target="_blank" rel="noopener noreferrer">Live demo <span aria-hidden="true">↗</span></a>
+              </div>
+            </article>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="tech-category">
-        <h3>Backend & Data</h3>
-        <p>APIs, databases, and data architecture.</p>
-        <div class="tech-list">
-          <div class="tech-item">
-            <span class="tech-name">Supabase / PostgreSQL</span>
-            <span class="tech-level">Intermediate</span>
+    <section id="skills" class="tech-section">
+      <p class="eyebrow">Capabilities</p>
+      <h2>Tools for building across layers.</h2>
+      <div class="tech-categories">
+        <div class="skill-group">
+          <h3>Systems &amp; ML</h3>
+          <div class="skill-tags">
+            <span>PyTorch</span><span>Python</span><span>C/C++</span><span>Polars</span><span>Transformers</span><span>Autograd</span>
           </div>
-          <div class="tech-item">
-            <span class="tech-name">REST APIs</span>
-            <span class="tech-level">Beginner</span>
+        </div>
+        <div class="skill-group">
+          <h3>Web &amp; Data</h3>
+          <div class="skill-tags">
+            <span>Next.js</span><span>TypeScript</span><span>PostgreSQL</span><span>Supabase</span><span>FastAPI</span><span>REST APIs</span>
           </div>
-          <div class="tech-item">
-            <span class="tech-name">Authentication & Permissions</span>
-            <span class="tech-level">Beginner</span>
-          </div>
-          <div class="tech-item">
-            <span class="tech-name">Row-Level Security</span>
-            <span class="tech-level">Intermediate</span>
+        </div>
+        <div class="skill-group">
+          <h3>Hardware</h3>
+          <div class="skill-tags">
+            <span>ESP32</span><span>Microcontrollers</span><span>Mechatronics Control</span>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="tech-category">
-        <h3>AI & Machine Learning</h3>
-        <p>Deep learning, NLP, and AI applications.</p>
-        <div class="tech-list">
-          <div class="tech-item">
-            <span class="tech-name">Machine Learning</span>
-            <span class="tech-level">Intermediate</span>
-          </div>
-          <div class="tech-item">
-            <span class="tech-name">NLP</span>
-            <span class="tech-level">Beginner</span>
-          </div>
-          <div class="tech-item">
-            <span class="tech-name">LLM APIs & Integration</span>
-            <span class="tech-level">Beginner</span>
-          </div>
-          <div class="tech-item">
-            <span class="tech-name">Data Analysis & Visualization</span>
-            <span class="tech-level">Beginner</span>
-          </div>
+    <section id="contact" class="contact-section">
+      <div class="contact-inner">
+        <p class="eyebrow">Contact</p>
+        <h2>Have a system to build?</h2>
+        <p>For collaborations, engineering projects, or conversations about machine learning and practical engineering, get in touch.</p>
+        <div class="contact-email"><a href="mailto:bigembee24@gmail.com">bigembee24@gmail.com</a></div>
+        <div class="contact-links">
+          <a href="https://github.com/bigembee" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://linkedin.com/in/bigembee" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="mailto:bigembee24@gmail.com">Email</a>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section id="contact" class="contact-section">
-    <div class="contact-content">
-      <h2>Let's Connect</h2>
-      <p>Whether you're building something interesting, want to discuss AI and African tech, or have a problem that needs solving, I'd like to hear about it.</p>
-      <div class="contact-email">bigembee24@gmail.com</div>
-      <div class="contact-links">
-        <a href="https://github.com/bigembee" target="_blank">GitHub</a>
-        <a href="https://linkedin.com/in/bigembee" target="_blank">LinkedIn</a>
-        <a href="mailto:bigembee24@gmail.com">Email</a>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <footer>
-    <p>&copy; 2025. Built by embee.</p>
+    <p>Built by embee.</p>
   </footer>
 </body>
 </html>
