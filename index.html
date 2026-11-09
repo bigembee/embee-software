@@ -297,8 +297,25 @@
       border-color: var(--accent);
     }
 
+    .project-card-featured {
+      grid-column: 1 / -1;
+    }
+
     .project-header {
       margin-bottom: 0.75rem;
+    }
+
+    .project-demo {
+      width: 100%;
+      margin-top: 1.25rem;
+    }
+
+    .project-demo iframe {
+      display: block;
+      width: 100%;
+      height: 450px;
+      border: 0;
+      background: transparent;
     }
 
     .project-description {
@@ -558,6 +575,29 @@
         <div class="project-category" id="ml-systems">
           <h3>Machine Learning &amp; Systems Engineering</h3>
           <div class="project-grid">
+            <article class="project-card project-card-featured">
+              <div class="project-header">
+                <h3>African Dish Classifier</h3>
+              </div>
+              <p class="project-description">An interactive machine learning model that classifies African dishes. Try it in the live demo below.</p>
+              <div class="tech-stack" aria-label="Technologies">
+                <span class="tech-tag">Machine Learning</span>
+                <span class="tech-tag">Image Classification</span>
+                <span class="tech-tag">Hugging Face Spaces</span>
+              </div>
+              <div class="project-demo">
+                <iframe
+                  src="https://bigembee-african-food-classifier.hf.space"
+                  title="Interactive African Dish Classifier demo"
+                  loading="lazy"
+                  allowfullscreen>
+                </iframe>
+              </div>
+              <div class="project-links">
+                <a href="https://bigembee-african-food-classifier.hf.space" target="_blank" rel="noopener noreferrer">Open live demo <span aria-hidden="true">↗</span></a>
+              </div>
+            </article>
+
             <article class="project-card">
               <div class="project-header">
                 <h3>NanoGPT &amp; Autograd Engine</h3>
